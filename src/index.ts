@@ -1,8 +1,16 @@
-let firstName: string = "Tem";
-let myAge: number = 26;
-let isEnrolled: boolean = true;
-let bootcamp: string = "Deadly Coders x CBA";
-
-function average(num1: number, num2: number): number {
-return (num1 + num2) / 2;
+import axios from 'axios';
+interface Post {
+    id: number;
+    title: string;
+    body: string;
 }
+
+async function fetchPost(id: number): Promise<Post> {
+    const response = await axios.get<Post>(
+        `https://jsonplaceholder.typicode.com/posts/${id}`
+    );
+    return response.data;
+}
+console.log("yes sir");
+
+console.log("no sir")
